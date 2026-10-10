@@ -434,7 +434,7 @@ Systems talk through signals. The UI never reaches into world internals.
 - Every stop has a `content` id. In M1, `Content.get_for_stop(id)` returns nothing and the card shows the placeholder.
 - The arrival card has a **content slot** (a container) where future lesson and quiz scenes will be mounted.
 - Per-stop progress already has room for `lesson_done` and `best_quiz_score` (unused in M1).
-- Content will live in `game/content/`, one file per stop, kept separate from code and recording the handbook edition it was checked against.
+- Content will live in `game/content/`, one file per stop, kept separate from code. Each file records the handbook **edition and impression** it was checked against (section 11.3).
 
 ### 7.7 Automated tests
 
@@ -535,27 +535,52 @@ A session-start script installs Godot in Claude's cloud machine. Before pushing,
   - Duplicate runs cancel each other.
   - Every job has a timeout.
   - No build matrices.
-- **Cost:** while the repo is **public**, GitHub's standard runners cost nothing, macOS included. If it ever goes private, the Free plan includes 2,000 minutes a month and macOS minutes count 10×, so iOS builds would need to stay rare.
+- **Cost:** while the repo is **public**, GitHub's standard runners cost nothing, macOS included. Only "larger" runners are billed, and we never use them. If the repo ever goes private, the Free plan includes 2,000 minutes a month and macOS minutes count 10×, so iOS builds would need to stay rare.
+- **Keeping builds:** on public repos, workflow artifacts are deleted after at most 90 days. Builds worth keeping are attached to a **GitHub Release** instead.
 - **Secrets** (signing keys, store credentials) live only in GitHub Secrets, never in the repo.
 - **Forks** can't trigger any workflow.
 
 ## 11. Release plan (later milestones; nothing here is needed for M1)
 
+Facts below were checked in October 2026. Re-check them at the start of M5 and M6, because store rules change.
+
 ### 11.1 Android: Google Play (M5)
-- **Account:** a Google Play developer account (one-off fee). New personal accounts must run a **closed test** with a minimum number of testers for a minimum number of days before going public, so recruit testers early.
-- **Build:** release **AAB** with **Play App Signing**, meeting Play's current target API level and 16 KB memory page rules.
+- **Account:** a Google Play developer account, **US$25 one-off**. You must be 18+ and verify your ID and a device.
+- **Closed test first:** personal accounts created after 13 Nov 2023 must run a **closed test with at least 12 testers opted in for at least 14 days in a row**. Only then can you apply for production, and the review takes up to about 7 days. **Start recruiting testers during M4.**
+- **Build requirements:**
+  - App Bundle (**AAB**), with **Play App Signing**.
+  - **Target API 36** (Android 16) for new apps and updates. This has applied since 31 Aug 2026.
+  - **64-bit** support.
+  - **16 KB memory page** compatibility for native code (the game engine). Treat this as enforced now.
+- **Developer verification:**
+  - Apps on Play must be registered, which Play does automatically for most apps.
+  - **Installs over adb, which is our test workflow, are exempt.**
+  - Installs from outside Play in the UK are expected to need verification from 2027 (date not announced).
+  - Google's free **limited-distribution** account can share test builds with up to 20 devices outside Play. That's handy for friends and family testing.
 - **Store listing:**
   - **Data safety:** "no data collected" (true while the app has no network access).
   - Content rating questionnaire.
   - Privacy policy page.
   - Screenshots.
-- **Developer verification:** Google's verification for Android developers is rolling out. Register before release.
 
 ### 11.2 iOS: App Store (M6)
-- **Account:** the **Apple Developer Program** (yearly fee) is needed for any iPhone testing or TestFlight. A **Mac is not needed**: builds run on GitHub's macOS runners, which are free while the repo is public.
-- **Testing:** needs **an iPhone** (yours or borrowed) or TestFlight testers. iOS-specific checks are the rendering backend, safe areas and performance on older iPhones.
+- **Account:** the **Apple Developer Program, US$99 a year**. It's needed for any iPhone testing, TestFlight or the App Store.
+- **Build requirements:** uploads must be built with **Xcode 26 or later and the iOS 26 SDK** (since 28 Apr 2026).
+- **No Mac needed for builds:** GitHub's free `macos-26` runners (default Xcode 26.6) build and upload, and they cost nothing while the repo is public.
+  - Creating the signing certificate is easiest on a Mac, but it can be done with OpenSSL plus the App Store Connect API, or by borrowing a Mac for half an hour once.
+- **Testing:**
+  - TestFlight builds expire after 90 days.
+  - The first build for external testers goes through Apple review.
+  - You need **an iPhone** (yours or borrowed) or TestFlight testers, because without a Mac there is no local simulator.
+  - iOS-specific checks: rendering backend, safe areas, performance on older iPhones.
 
-### 11.3 Compliance basics
+### 11.3 Content edition (matters from M3)
+- **Source today:** the test is based only on *Life in the United Kingdom: A Guide for New Residents*, **3rd edition (2013)**. It is reprinted with corrections (the latest amendment list is from January 2026: King instead of Queen, updated honours titles, Senedd changes, X instead of Twitter, and more).
+- **The test itself:** 24 questions in 45 minutes; you need 75% to pass.
+- **A refresh is coming:** the Home Office is **reviewing and refreshing the test**, but no revised handbook had been published by October 2026. A new test-service contract is being procured to start around late 2027, and the current one runs to March 2028.
+- **What that means for us:** all learning content will be **tagged with the handbook edition and impression** it was checked against, and kept as data separate from code so a new edition can be swapped in.
+
+### 11.4 Compliance basics
 - **Credits:** data and font attributions in About and in `CREDITS.md`.
 - **Legal notice:** the code is public but **all rights reserved** (see `README.md`).
 - **Accessibility:** a basic pass before release (text size, contrast, reduce motion).
@@ -606,7 +631,7 @@ A session-start script installs Godot in Claude's cloud machine. Before pushing,
 | Too slow on budget GPUs | Strict budgets, detail levels, quality tiers, benchmark from M1.2 onward, testing on your actual phone at every step |
 | Toolchain gaps on ARM64 Linux (Google ships Android SDK tools for x86 Linux only) | Use Ubuntu's own ARM64 packages for `adb` and `apksigner`, and avoid the Gradle build for test APKs. Fallbacks: Windows `adb.exe` from WSL, or the manual CI APK |
 | Wi-Fi debugging flakiness (port changes, router isolation) | `phone.sh connect` / `doctor`; USB fallback |
-| Historical accuracy, or a new edition of the handbook | Stops and content are data; validated against the current edition at M3; edition recorded |
+| Historical accuracy, or a **revised handbook/test** (a refresh is announced but not yet published, section 11.3) | Stops and content are data, not code; checked against the current edition at M3; every item tagged with its edition so a new edition can be swapped in |
 | iOS with no Apple hardware or account | Builds on GitHub macOS runners; account and a test iPhone needed only from M6 |
 | Store rules shift (Play testing requirements, developer verification, Apple SDK minimums) | Re-check at the start of M5/M6; release checklist in this doc |
 | Public repo | All rights reserved notice; secrets only in GitHub Secrets; only openly licensed data and assets committed |
