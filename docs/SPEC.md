@@ -273,7 +273,7 @@ After the final stop (Westminster, *Today*), a **Journey complete** card shows t
 - **Player piece:** a simple pawn, tinted per chapter.
 - **Boat:** a simple hull.
 - **Stop markers:** simple pins.
-- **UI font:** *Atkinson Hyperlegible*, designed for legibility (open licence).
+- **UI font:** *Atkinson Hyperlegible Next*, designed for legibility (SIL Open Font License; ~114 KB).
 - **Final look:** the avatar, vehicles and landmark models are open questions for M2 (section 14).
 
 ## 6. Tuning and the developer menu: how we nail down the gameplay
@@ -392,10 +392,11 @@ Systems talk through signals. The UI never reaches into world internals.
 ### 7.4 Map pipeline
 
 1. **Fetch (one-off; Claude runs it, you never need to):** `tools/mapgen/fetch_dem.py`.
-   - Downloads public elevation + sea-depth data (source in section 15).
+   - Downloads the **GEBCO_2026 grid** (land height + sea depth in one dataset, 15 arc-seconds, roughly 0.3–0.5 km). It's cut to the map box on the server, so the download is ~20–40 MB.
    - Reprojects it to a **1 km grid** in map coordinates.
-   - Marks which land is UK, using public-domain boundary data.
+   - Marks which land is UK, using Natural Earth country boundaries.
    - Writes small compressed arrays (~1–3 MB) into `tools/mapgen/data/`, which are committed.
+   - *Why not NOAA ETOPO 2022?* Its UK land layer comes from FABDEM, which is licensed **non-commercial only**. GEBCO explicitly allows commercial use with attribution.
 2. **Build (automatic, when inputs change):** `tools/mapgen/build_terrain.py` (Python 3 + NumPy, roughly 10 s).
    - Cuts the map into **128 km chunks**, each with **3 levels of detail** (1, 2 and 4 km grids).
    - Adds skirts at chunk edges so no cracks show between detail levels.
@@ -482,11 +483,15 @@ Everything runs **natively on ARM64 inside WSL**. Test builds never touch GitHub
    git clone https://github.com/mrsjoberg/BQ.git && cd BQ
    ./tools/setup_wsl.sh
    ```
-   This installs Java 17, `adb`, `apksigner`, Python 3 and NumPy from Ubuntu's ARM64 packages. It downloads Godot 4.7 (Linux ARM64) and the Android export templates (≈1 GB, once) into `~/.local/share/bq-tools/`, creates a **debug signing key outside the repo**, and runs a health check.
+   This installs Java 17, `adb`, `apksigner`, Python 3 and NumPy, all from Ubuntu's own ARM64 packages. Google doesn't publish ARM64 Linux versions of its Android tools, so these are the native route. It also:
+   - downloads Godot 4.7 (Linux ARM64) and its Android export templates (once) into `~/.local/share/bq-tools/`;
+   - creates a **debug signing key outside the repo**;
+   - runs a health check.
 3. **Pair the phone once:**
    - Run `./tools/phone.sh pair`.
    - On the phone: Wireless debugging → *Pair device with pairing code*.
    - Type the IP:port and the code it shows.
+   - Ubuntu's `adb` can't discover the phone on its own, so after pairing the script switches the phone to a **fixed port** (5555). After that, `phone.sh` reconnects by itself until the phone restarts. After a restart, `phone.sh connect` asks once for the IP:port shown under Wireless debugging.
 
 ### 9.2 Every day: one command
 
@@ -500,16 +505,17 @@ git pull
 | `./tools/phone.sh` | Build, install, launch and follow the logs (the usual one) |
 | `phone.sh build` | Build the test APK only (`build/bq-dev.apk`) |
 | `phone.sh install` | Install the last build |
-| `phone.sh connect` | Reconnect over Wi-Fi (Android changes the port after the phone restarts) |
+| `phone.sh connect` | Reconnect over Wi-Fi after the phone restarts (asks for the IP:port shown on the phone) |
 | `phone.sh logs` | Show the game's log from the phone |
 | `phone.sh bench` | Start the benchmark and print the result |
 | `phone.sh pull-tuning` | Copy your on-phone tuning into the repo |
 | `phone.sh doctor` | Check the toolchain and connection, and explain any problem |
 
 - **Every build is stamped.** The title screen and About show version + commit, e.g. `0.1.0 (a1b2c3d)`, so you always know exactly which build you're testing.
-- **Fallbacks** if Wi-Fi debugging misbehaves:
-  - **(A)** a USB cable with the Windows `adb.exe`, which the script auto-detects through WSL.
-  - **(B)** the manual GitHub workflow *Android test APK*: download the APK on the phone from its release page.
+- **Fallbacks** if Wi-Fi debugging misbehaves (for example a VPN, or a router that isolates devices):
+  - **(A)** WSL "mirrored" networking (one line in `.wslconfig`).
+  - **(B)** the Windows `adb.exe` (USB cable or Wi-Fi), which the script auto-detects through WSL.
+  - **(C)** the manual GitHub workflow *Android test APK*: download the APK on the phone from its release page.
 
 ### 9.3 Validating a build
 
@@ -629,8 +635,8 @@ Facts below were checked in October 2026. Re-check them at the start of M5 and M
 | Risk | Mitigation |
 |---|---|
 | Too slow on budget GPUs | Strict budgets, detail levels, quality tiers, benchmark from M1.2 onward, testing on your actual phone at every step |
-| Toolchain gaps on ARM64 Linux (Google ships Android SDK tools for x86 Linux only) | Use Ubuntu's own ARM64 packages for `adb` and `apksigner`, and avoid the Gradle build for test APKs. Fallbacks: Windows `adb.exe` from WSL, or the manual CI APK |
-| Wi-Fi debugging flakiness (port changes, router isolation) | `phone.sh connect` / `doctor`; USB fallback |
+| Toolchain gaps on ARM64 Linux: Google ships no ARM64 Linux Android tools, and Gradle's `aapt2` doesn't run there | Test APKs use Godot's **non-Gradle export** with Ubuntu's ARM64 `adb` and `apksigner`. Store bundles (AAB, which need Gradle) are built in CI on x86-64. Fallbacks: Windows `adb.exe` from WSL, or the manual CI APK |
+| Wi-Fi debugging flakiness (no auto-discovery in Ubuntu's `adb`, port changes, router or VPN isolation) | Fixed-port reconnect, `phone.sh connect` / `doctor`, mirrored networking, Windows `adb.exe` or USB |
 | Historical accuracy, or a **revised handbook/test** (a refresh is announced but not yet published, section 11.3) | Stops and content are data, not code; checked against the current edition at M3; every item tagged with its edition so a new edition can be swapped in |
 | iOS with no Apple hardware or account | Builds on GitHub macOS runners; account and a test iPhone needed only from M6 |
 | Store rules shift (Play testing requirements, developer verification, Apple SDK minimums) | Re-check at the start of M5/M6; release checklist in this doc |
@@ -650,12 +656,12 @@ Facts below were checked in October 2026. Re-check them at the start of M5 and M
 
 ## 15. Credits and data licences (planned)
 
-| Item | Source | Licence |
+| Item | Source | Licence / credit |
 |---|---|---|
-| Elevation + sea depth | Public global elevation/bathymetry grid (exact source confirmed at M1.2) | Public domain / open, with attribution |
-| UK boundary (for UK vs. context land) | Natural Earth | Public domain |
-| UI font | Atkinson Hyperlegible | SIL Open Font License |
-| Engine | Godot Engine | MIT |
+| Elevation + sea depth | **GEBCO_2026 Grid**, GEBCO Compilation Group (2026), doi:10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa | Public domain, commercial use allowed. Credit the source, imply no endorsement, not for navigation |
+| UK boundary (for UK vs. context land) | **Natural Earth** 1:10m | Public domain |
+| UI font | **Atkinson Hyperlegible Next** (Google Fonts copy) | SIL Open Font License 1.1, with `OFL.txt` shipped in the game |
+| Engine | **Godot Engine** | MIT, with licence text shipped in the game |
 
 ---
 
