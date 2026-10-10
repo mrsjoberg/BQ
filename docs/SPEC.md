@@ -14,7 +14,7 @@
 
 | Topic | Decision |
 |---|---|
-| Engine | **Godot 4.7** (GDScript, *Compatibility* renderer for low-end phones) |
+| Engine | **Godot 4.7** (4.7.2 pinned; GDScript; *Compatibility* renderer for low-end phones) |
 | Core journey | **Tap-to-travel diorama**: the whole UK as a tilted 3D tabletop map. Tap the next stop and your piece travels there |
 | Orientation | **Portrait** only |
 | Test device | **Budget Android phone, Android 11+** (exact model to confirm, see section 14) |
@@ -243,7 +243,7 @@ After the final stop (Westminster, *Today*), a **Journey complete** card shows t
 
 ### 5.1 Extent and projection
 
-- **Area:** 49.0–61.0°N, 11.0°W–2.5°E. That covers Great Britain, Northern Ireland, Orkney, Shetland and the Isles of Scilly, plus the island of Ireland, the Isle of Man, the Channel Islands and the nearest strip of continental coast.
+- **Area:** 49.0–61.0°N, 11.0°W–2.5°E. That covers all of the UK (Great Britain, Northern Ireland, Orkney, Shetland, the Isles of Scilly), plus the rest of the island of Ireland, the Isle of Man, the Channel Islands and the nearest strip of continental coast.
 - **What's highlighted:** only **UK land** is in full colour. Everything else, including the Isle of Man and the Channel Islands (Crown Dependencies, not part of the UK), is shown **muted** and unlabelled.
 - **Labels:** the four UK nations are labelled flat on the land: ENGLAND, SCOTLAND, WALES, NORTHERN IRELAND.
 - **Projection:** spherical transverse Mercator, central meridian 4°W, origin 55°N. 1 map unit = 1 km, so the map is about **930 × 1,340 km**, which suits a portrait screen.
@@ -333,15 +333,20 @@ Every number that affects *feel* lives in `game/data/tuning.json`, not in code. 
 
 ### 7.1 Engine and project settings
 
-- **Godot 4.7.x.** The exact patch version is pinned in `tools/godot-version`, with download checksums. Upgrades are deliberate, never automatic.
+- **Godot 4.7.2**, the latest stable release (18 Aug 2026). The exact version is pinned in `tools/godot-version`, with download checksums. Maintenance releases such as 4.7.3 are adopted deliberately, never automatically.
 - **GDScript** with static typing everywhere. No C#: it adds a runtime, APK size and toolchain weight for no M1 benefit.
-- **Compatibility renderer** (OpenGL ES 3.0), the Godot renderer intended for low-end mobile.
+- **Compatibility renderer** (OpenGL ES 3.0), the Godot renderer intended for low-end mobile. It also avoids Vulkan driver crashes known on budget GPUs such as the PowerVR GE8320.
 - **Display:** portrait locked; stretch mode `canvas_items` with `expand` aspect; UI respects the safe area (notches, rounded corners).
 - **Android:**
-  - CPU architectures: **arm64-v8a + armeabi-v7a**. Many budget phones run 32-bit "Android Go", so the test build includes both.
+  - **Minimum Android 7.0** (API 24) and **target API 36**. These are Godot 4.7's defaults and meet Google Play's 2026 rule.
+  - CPU architectures: **arm64-v8a + armeabi-v7a**. Godot's default is 64-bit only, but many budget phones run 32-bit Android, so the test build includes both.
+  - 16 KB memory pages are supported (Godot ≥ 4.5).
+  - ETC2/ASTC texture compression is enabled.
   - **Permissions: none.** No internet, so the app can't collect anything.
   - App ids: `com.mrsjoberg.bq` for store builds and `com.mrsjoberg.bq.dev` for test builds, so both can be installed side by side.
   - Names: "BQ" and "BQ Dev".
+- **Test APKs** use Godot's **non-Gradle export**. Godot aligns the APK itself and only needs `adb` and `apksigner`, which Ubuntu provides natively for ARM64.
+- **Store bundles (AAB)** need Godot's **Gradle build**. Google's build tools for it are x86-64 only, so AABs are built in CI.
 - **No physics engine use.** Taps are resolved in screen space against stop markers.
 
 ### 7.2 Repository layout
@@ -403,7 +408,7 @@ Systems talk through signals. The UI never reaches into world internals.
    - Computes smooth normals and drops triangles hidden under the sea.
    - Writes `game/assets/terrain/generated/`: the terrain meshes (`.glb`), a sea-depth texture, and a coarse height grid for placing pins and routes at runtime.
    - Generated files are **not committed**, which keeps the repo small however often we tweak the terrain.
-3. **Runtime:** each chunk switches detail level by camera distance.
+3. **Runtime:** each chunk switches detail level by camera distance, using Godot's *visibility ranges*. This renderer can't cross-fade between levels, so skirts and identical colouring hide the switch.
 
 **Budgets:**
 - ≤ 400k triangles at full detail across the whole map.
@@ -413,17 +418,22 @@ Systems talk through signals. The UI never reaches into world internals.
 
 ### 7.5 Rendering for low-end phones
 
-- **Lighting:** one directional light and **no real-time shadows**. The piece gets a cheap blob shadow.
-- **Effects:** no post-processing (glow, SSAO, SSR). Distance haze only if it's cheap in the Compatibility renderer, otherwise it's faked in the terrain shader.
+- **Lighting:** one directional light and **no real-time shadows**. In this renderer each shadow split draws every shadow-casting mesh again. The piece gets a cheap blob shadow.
+- **Effects:** no post-processing (glow, SSAO, SSR).
+- **Distance haze:** the renderer's depth/height fog is supported, but it's 8-bit and can band, so we fall back to haze computed in the terrain shader if it looks poor.
 - **Sea:** opaque, so there's no transparency overdraw.
 - **Textures:** none on the terrain.
 - **Labels and pins:** only the current chapter's (≤ 7) are shown with labels.
+- **Shader warm-up:** this renderer can't pre-compile shaders, so the first use of a material can stutter. Every material is drawn once, off-screen, during the loading screen.
+- **Nothing that's slow on budget PowerVR GPUs:** no skeletal animation and no GPU particles in M1. PowerVR drivers recompile those shaders on every launch.
+- **Anti-aliasing:** MSAA stays **off on PowerVR GPUs**, because of a known grey-artifact bug on the GE8320.
+- **Frame pacing:** Android's frame-pacing helper only works with Godot's Vulkan renderer, not this one. M1.2 measures how smooth a 30 FPS cap actually is on your phone. If it judders, we switch to an uncapped 60 FPS at a lower render scale.
 - **Quality tiers:**
 
 | | Low | Medium | High |
 |---|---|---|---|
 | Render scale | 0.75 | 1.0 | 1.0 |
-| Anti-aliasing | off | off | MSAA 2× |
+| Anti-aliasing | off | off | MSAA 2× (never on PowerVR) |
 | FPS cap | 30 | 30 | 60 |
 | Terrain detail bias | lower | normal | higher |
 | Idle FPS cap | 15 | 15 | 30 |
@@ -458,6 +468,7 @@ Claude runs these **before every push**, in its own cloud machine. They don't ne
 | Metric | Target (Low tier on baseline) |
 |---|---|
 | Frame rate | **30 FPS sustained**, 1% low ≥ 25 FPS in the benchmark |
+| Smoothness | 95% of frames within 36 ms (no visible judder) |
 | Cold start → map | ≤ 10 s (≤ 5 s on mid-range) |
 | Memory (PSS) | ≤ 300 MB |
 | Draw calls per frame | ≤ 100 |
@@ -484,14 +495,15 @@ Everything runs **natively on ARM64 inside WSL**. Test builds never touch GitHub
    ./tools/setup_wsl.sh
    ```
    This installs Java 17, `adb`, `apksigner`, Python 3 and NumPy, all from Ubuntu's own ARM64 packages. Google doesn't publish ARM64 Linux versions of its Android tools, so these are the native route. It also:
-   - downloads Godot 4.7 (Linux ARM64) and its Android export templates (once) into `~/.local/share/bq-tools/`;
+   - downloads Godot 4.7.2 for Linux ARM64 (~77 MB) and **only the Android parts** of the export templates (~230 MB instead of the full 1.3 GB bundle) into `~/.local/share/bq-tools/`, checking them against Godot's published checksums;
+   - builds a tiny "Android SDK" folder that points Godot at Ubuntu's `adb` and `apksigner`, the only two tools it needs;
    - creates a **debug signing key outside the repo**;
    - runs a health check.
 3. **Pair the phone once:**
    - Run `./tools/phone.sh pair`.
    - On the phone: Wireless debugging → *Pair device with pairing code*.
    - Type the IP:port and the code it shows.
-   - Ubuntu's `adb` can't discover the phone on its own, so after pairing the script switches the phone to a **fixed port** (5555). After that, `phone.sh` reconnects by itself until the phone restarts. After a restart, `phone.sh connect` asks once for the IP:port shown under Wireless debugging.
+   - Ubuntu's `adb` can't discover the phone on its own, so after pairing the script switches the phone to a **fixed port** (5555). After that, `phone.sh` reconnects by itself until the phone restarts. The phone still accepts only your paired laptop's key. After a restart, `phone.sh connect` asks once for the IP:port shown under Wireless debugging.
 
 ### 9.2 Every day: one command
 
@@ -499,6 +511,8 @@ Everything runs **natively on ARM64 inside WSL**. Test builds never touch GitHub
 git pull
 ./tools/phone.sh        # build → install → launch → show the game's log
 ```
+
+Each command below is run as `./tools/phone.sh <command>`:
 
 | Command | Does |
 |---|---|
@@ -537,7 +551,7 @@ A session-start script installs Godot in Claude's cloud machine. Before pushing,
 | `ios.yml` | manual | iOS build on a macOS runner → TestFlight | M6 |
 
 - **Thrift settings:**
-  - Godot and its templates are cached.
+  - Godot is cached, and only the needed parts of its export templates are fetched.
   - Duplicate runs cancel each other.
   - Every job has a timeout.
   - No build matrices.
@@ -577,8 +591,11 @@ Facts below were checked in October 2026. Re-check them at the start of M5 and M
 - **Testing:**
   - TestFlight builds expire after 90 days.
   - The first build for external testers goes through Apple review.
-  - You need **an iPhone** (yours or borrowed) or TestFlight testers, because without a Mac there is no local simulator.
-  - iOS-specific checks: rendering backend, safe areas, performance on older iPhones.
+  - You need **an iPhone** (yours or borrowed) or TestFlight testers. Without a Mac there's no local simulator, but the CI runner can boot the iOS Simulator for a smoke test, because the Simulator supports Godot's Compatibility renderer.
+- **Godot on iOS:**
+  - Minimum iOS version **15.0**.
+  - The Compatibility renderer runs on Apple's **deprecated OpenGL ES**. It works today. If Apple ever removes it, or it performs poorly, iOS switches to Godot's Metal-based *Mobile* renderer, since iPhones from iOS 15 onward handle it well.
+  - Other iOS-specific checks: safe areas, performance on older iPhones.
 
 ### 11.3 Content edition (matters from M3)
 - **Source today:** the test is based only on *Life in the United Kingdom: A Guide for New Residents*, **3rd edition (2013)**. It is reprinted with corrections (the latest amendment list is from January 2026: King instead of Queen, updated honours titles, Senedd changes, X instead of Twitter, and more).
@@ -635,6 +652,8 @@ Facts below were checked in October 2026. Re-check them at the start of M5 and M
 | Risk | Mitigation |
 |---|---|
 | Too slow on budget GPUs | Strict budgets, detail levels, quality tiers, benchmark from M1.2 onward, testing on your actual phone at every step |
+| Stutter: no shader pre-compilation and no Android frame-pacing helper in the Compatibility renderer | Warm up shaders while loading; measure frame-time smoothness in the benchmark; choose a 30 or 60 FPS strategy from your phone's data |
+| Apple removes OpenGL ES on iOS | Switch iOS to Godot's Metal-based Mobile renderer (a project setting; re-test in M6) |
 | Toolchain gaps on ARM64 Linux: Google ships no ARM64 Linux Android tools, and Gradle's `aapt2` doesn't run there | Test APKs use Godot's **non-Gradle export** with Ubuntu's ARM64 `adb` and `apksigner`. Store bundles (AAB, which need Gradle) are built in CI on x86-64. Fallbacks: Windows `adb.exe` from WSL, or the manual CI APK |
 | Wi-Fi debugging flakiness (no auto-discovery in Ubuntu's `adb`, port changes, router or VPN isolation) | Fixed-port reconnect, `phone.sh connect` / `doctor`, mirrored networking, Windows `adb.exe` or USB |
 | Historical accuracy, or a **revised handbook/test** (a refresh is announced but not yet published, section 11.3) | Stops and content are data, not code; checked against the current edition at M3; every item tagged with its edition so a new edition can be swapped in |
@@ -690,3 +709,5 @@ Felt off (what, where, how often):
 Bugs (steps to reproduce):
 Tuning JSON (DEV → Copy tuning), if changed:
 ```
+
+A short screen recording (Android's built-in screen recorder) is the fastest way to show a "feels off" problem.
