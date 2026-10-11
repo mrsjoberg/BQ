@@ -1,0 +1,1156 @@
+{
+  "version": 2,
+  "note": "DRAFT journey data proposed by the learning design (the 78 map stops only; the Passport lessons have no pins and are listed in stops.csv). Same format as SPEC 4 plus: chapter.legs (<=7 stops, for label budget), stop.year_src (HB = year given in the handbook, EXT = year chosen by BQ, to be checked), stop.place_in_handbook (true = the handbook ties the place to what the stop teaches; false = the place is BQ's choice, marked with a double dagger in LEARNING_DESIGN.md), stop.content = stop id. A chapter may carry an optional 'start' (where the piece begins when the journey starts at that chapter): chapter 0 starts on Dogger Bank, chapter I (when the prologue is skipped) in the Channel off Kent.",
+  "chapters": [
+    {
+      "id": "prologue",
+      "numeral": "0",
+      "title": "Before the Romans",
+      "years": "Stone Age to 55 BC",
+      "mood": "prehistoric",
+      "end_year": -56,
+      "start": {
+        "lat": 54.75,
+        "lon": 2.0,
+        "name": "Dogger Bank (the old land bridge)"
+      },
+      "legs": [
+        [
+          "pro-skara-brae",
+          "pro-stonehenge",
+          "pro-maiden-castle"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "pro-skara-brae",
+          "name": "Skara Brae",
+          "place": "Skara Brae, Orkney",
+          "year": "Stone Age",
+          "sort": -3100,
+          "lat": 59.049,
+          "lon": -3.343,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "pro-skara-brae"
+        },
+        {
+          "id": "pro-stonehenge",
+          "name": "Stonehenge",
+          "place": "Stonehenge, Wiltshire",
+          "year": "Stone Age",
+          "sort": -2500,
+          "lat": 51.179,
+          "lon": -1.826,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "pro-stonehenge"
+        },
+        {
+          "id": "pro-maiden-castle",
+          "name": "Maiden Castle",
+          "place": "Maiden Castle, Dorset",
+          "year": "Iron Age",
+          "sort": -600,
+          "lat": 50.695,
+          "lon": -2.471,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "pro-maiden-castle"
+        }
+      ]
+    },
+    {
+      "id": "roman",
+      "numeral": "I",
+      "title": "Roman Britain",
+      "years": "55 BC - AD 410",
+      "mood": "roman",
+      "end_year": 410,
+      "start": {
+        "lat": 51.1,
+        "lon": 1.6,
+        "name": "The Channel"
+      },
+      "legs": [
+        [
+          "rom-richborough",
+          "rom-london",
+          "rom-housesteads"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "rom-richborough",
+          "name": "Richborough",
+          "place": "Richborough, Kent",
+          "year": "55 BC / AD 43",
+          "sort": -55,
+          "lat": 51.293,
+          "lon": 1.332,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "rom-richborough"
+        },
+        {
+          "id": "rom-london",
+          "name": "Roman London",
+          "place": "London (Westminster Bridge)",
+          "year": "AD 60",
+          "sort": 60,
+          "lat": 51.501,
+          "lon": -0.122,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "rom-london"
+        },
+        {
+          "id": "rom-housesteads",
+          "name": "Hadrian's Wall",
+          "place": "Housesteads, Northumberland",
+          "year": "AD 122",
+          "sort": 122,
+          "lat": 55.013,
+          "lon": -2.327,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "rom-housesteads"
+        }
+      ]
+    },
+    {
+      "id": "saxon",
+      "numeral": "II",
+      "title": "Anglo-Saxons & Vikings",
+      "years": "AD 410 - 1066",
+      "mood": "saxon",
+      "end_year": 1066,
+      "legs": [
+        [
+          "ang-sutton-hoo",
+          "ang-iona",
+          "ang-canterbury",
+          "vik-york",
+          "ang-winchester"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "ang-sutton-hoo",
+          "name": "Sutton Hoo",
+          "place": "Sutton Hoo, Suffolk",
+          "year": "AD 410-600",
+          "sort": 411,
+          "lat": 52.089,
+          "lon": 1.338,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "ang-sutton-hoo"
+        },
+        {
+          "id": "ang-iona",
+          "name": "Iona",
+          "place": "Iona, Scotland",
+          "year": "c. AD 563",
+          "sort": 563,
+          "lat": 56.335,
+          "lon": -6.393,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "ang-iona"
+        },
+        {
+          "id": "ang-canterbury",
+          "name": "Canterbury (597)",
+          "place": "Canterbury, Kent",
+          "year": "c. AD 597",
+          "sort": 597,
+          "lat": 51.28,
+          "lon": 1.083,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "ang-canterbury"
+        },
+        {
+          "id": "vik-york",
+          "name": "York",
+          "place": "York, North Yorkshire",
+          "year": "from AD 789",
+          "sort": 789,
+          "lat": 53.96,
+          "lon": -1.081,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "vik-york"
+        },
+        {
+          "id": "ang-winchester",
+          "name": "Winchester",
+          "place": "Winchester, Hampshire",
+          "year": "c. AD 880",
+          "sort": 880,
+          "lat": 51.063,
+          "lon": -1.308,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "ang-winchester"
+        }
+      ]
+    },
+    {
+      "id": "medieval",
+      "numeral": "III",
+      "title": "The Middle Ages",
+      "years": "1066 - 1485",
+      "mood": "medieval",
+      "end_year": 1485,
+      "legs": [
+        [
+          "med-hastings",
+          "med-tower",
+          "med-runnymede",
+          "med-caernarfon",
+          "med-westminster"
+        ],
+        [
+          "med-bannockburn",
+          "med-weymouth",
+          "med-lincoln",
+          "med-southampton",
+          "med-bosworth"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "med-hastings",
+          "name": "Hastings",
+          "place": "Hastings (Battle), East Sussex",
+          "year": "1066",
+          "sort": 1066,
+          "lat": 50.914,
+          "lon": 0.487,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "med-hastings"
+        },
+        {
+          "id": "med-tower",
+          "name": "Tower of London (Normans)",
+          "place": "Tower of London",
+          "year": "c. 1080",
+          "sort": 1080,
+          "lat": 51.508,
+          "lon": -0.076,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "med-tower"
+        },
+        {
+          "id": "med-runnymede",
+          "name": "Runnymede",
+          "place": "Runnymede, Surrey",
+          "year": "1215",
+          "sort": 1215,
+          "lat": 51.444,
+          "lon": -0.565,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "med-runnymede"
+        },
+        {
+          "id": "med-caernarfon",
+          "name": "Caernarfon",
+          "place": "Caernarfon, Gwynedd",
+          "year": "1284",
+          "sort": 1284,
+          "lat": 53.139,
+          "lon": -4.277,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "med-caernarfon"
+        },
+        {
+          "id": "med-westminster",
+          "name": "Westminster Hall",
+          "place": "Palace of Westminster",
+          "year": "c. 1295",
+          "sort": 1295,
+          "lat": 51.5,
+          "lon": -0.125,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "med-westminster"
+        },
+        {
+          "id": "med-bannockburn",
+          "name": "Bannockburn",
+          "place": "Bannockburn, Stirling",
+          "year": "1314",
+          "sort": 1314,
+          "lat": 56.094,
+          "lon": -3.923,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "med-bannockburn"
+        },
+        {
+          "id": "med-weymouth",
+          "name": "Weymouth",
+          "place": "Weymouth (Melcombe Regis), Dorset",
+          "year": "1348",
+          "sort": 1348,
+          "lat": 50.607,
+          "lon": -2.457,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "med-weymouth"
+        },
+        {
+          "id": "med-lincoln",
+          "name": "Lincoln",
+          "place": "Lincoln",
+          "year": "c. 1400",
+          "sort": 1400,
+          "lat": 53.234,
+          "lon": -0.538,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "med-lincoln"
+        },
+        {
+          "id": "med-southampton",
+          "name": "Southampton",
+          "place": "Southampton, Hampshire",
+          "year": "1415",
+          "sort": 1415,
+          "lat": 50.9,
+          "lon": -1.404,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "med-southampton"
+        },
+        {
+          "id": "med-bosworth",
+          "name": "Bosworth",
+          "place": "Bosworth Field, Leicestershire",
+          "year": "1485",
+          "sort": 1485,
+          "lat": 52.58,
+          "lon": -1.43,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "med-bosworth"
+        }
+      ]
+    },
+    {
+      "id": "tudor",
+      "numeral": "IV",
+      "title": "Tudors & Stuarts",
+      "years": "1485 - 1714",
+      "mood": "tudor",
+      "end_year": 1714,
+      "legs": [
+        [
+          "tud-hampton-court",
+          "tud-canterbury",
+          "tud-greenwich",
+          "tud-stirling",
+          "tud-stratford",
+          "tud-plymouth"
+        ],
+        [
+          "stu-westminster",
+          "stu-derry",
+          "stu-newcastle",
+          "stu-naseby",
+          "stu-worcester",
+          "stu-dover"
+        ],
+        [
+          "stu-london-1666",
+          "stu-cambridge",
+          "stu-torbay",
+          "stu-westminster-1689",
+          "stu-glencoe",
+          "stu-edinburgh"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "tud-hampton-court",
+          "name": "Hampton Court",
+          "place": "Hampton Court Palace",
+          "year": "1530s",
+          "sort": 1530,
+          "lat": 51.404,
+          "lon": -0.338,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "tud-hampton-court"
+        },
+        {
+          "id": "tud-canterbury",
+          "name": "Canterbury (Church of England)",
+          "place": "Canterbury, Kent",
+          "year": "1530s",
+          "sort": 1534,
+          "lat": 51.285,
+          "lon": 1.087,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "tud-canterbury"
+        },
+        {
+          "id": "tud-greenwich",
+          "name": "Greenwich",
+          "place": "Greenwich, London",
+          "year": "1547-1603",
+          "sort": 1547,
+          "lat": 51.482,
+          "lon": -0.008,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "tud-greenwich"
+        },
+        {
+          "id": "tud-stirling",
+          "name": "Stirling Castle",
+          "place": "Stirling Castle",
+          "year": "1560",
+          "sort": 1560,
+          "lat": 56.123,
+          "lon": -3.948,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "tud-stirling"
+        },
+        {
+          "id": "tud-stratford",
+          "name": "Stratford-upon-Avon",
+          "place": "Stratford-upon-Avon",
+          "year": "1564",
+          "sort": 1564,
+          "lat": 52.192,
+          "lon": -1.707,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "tud-stratford"
+        },
+        {
+          "id": "tud-plymouth",
+          "name": "Plymouth",
+          "place": "Plymouth, Devon",
+          "year": "1588",
+          "sort": 1588,
+          "lat": 50.365,
+          "lon": -4.142,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "tud-plymouth"
+        },
+        {
+          "id": "stu-westminster",
+          "name": "Westminster (1605)",
+          "place": "Palace of Westminster",
+          "year": "1605-1642",
+          "sort": 1605,
+          "lat": 51.501,
+          "lon": -0.126,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "stu-westminster"
+        },
+        {
+          "id": "stu-derry",
+          "name": "Derry/Londonderry",
+          "place": "Derry/Londonderry",
+          "year": "c. 1609",
+          "sort": 1609,
+          "lat": 54.996,
+          "lon": -7.309,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "stu-derry"
+        },
+        {
+          "id": "stu-newcastle",
+          "name": "Newcastle",
+          "place": "Newcastle upon Tyne",
+          "year": "1640",
+          "sort": 1640,
+          "lat": 54.978,
+          "lon": -1.617,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "stu-newcastle"
+        },
+        {
+          "id": "stu-naseby",
+          "name": "Naseby",
+          "place": "Naseby, Northamptonshire",
+          "year": "1642-1649",
+          "sort": 1645,
+          "lat": 52.395,
+          "lon": -0.99,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "stu-naseby"
+        },
+        {
+          "id": "stu-worcester",
+          "name": "Worcester",
+          "place": "Worcester",
+          "year": "1651",
+          "sort": 1651,
+          "lat": 52.192,
+          "lon": -2.22,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "stu-worcester"
+        },
+        {
+          "id": "stu-dover",
+          "name": "Dover (1660)",
+          "place": "Dover, Kent",
+          "year": "1660",
+          "sort": 1660,
+          "lat": 51.129,
+          "lon": 1.321,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "stu-dover"
+        },
+        {
+          "id": "stu-london-1666",
+          "name": "London 1666",
+          "place": "St Paul's Cathedral, London",
+          "year": "1665-1666",
+          "sort": 1665,
+          "lat": 51.514,
+          "lon": -0.098,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "stu-london-1666"
+        },
+        {
+          "id": "stu-cambridge",
+          "name": "Cambridge (Newton)",
+          "place": "Cambridge",
+          "year": "1660s",
+          "sort": 1670,
+          "lat": 52.205,
+          "lon": 0.119,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "stu-cambridge"
+        },
+        {
+          "id": "stu-torbay",
+          "name": "Torbay",
+          "place": "Torbay (Brixham), Devon",
+          "year": "1688",
+          "sort": 1688,
+          "lat": 50.395,
+          "lon": -3.514,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "stu-torbay"
+        },
+        {
+          "id": "stu-westminster-1689",
+          "name": "Westminster (1689)",
+          "place": "Palace of Westminster",
+          "year": "1689",
+          "sort": 1689,
+          "lat": 51.499,
+          "lon": -0.124,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "stu-westminster-1689"
+        },
+        {
+          "id": "stu-glencoe",
+          "name": "Glencoe",
+          "place": "Glencoe, Highland",
+          "year": "1690-1692",
+          "sort": 1690,
+          "lat": 56.682,
+          "lon": -5.1,
+          "year_src": "EXT",
+          "place_in_handbook": true,
+          "content": "stu-glencoe"
+        },
+        {
+          "id": "stu-edinburgh",
+          "name": "Edinburgh (Union)",
+          "place": "Edinburgh (Parliament House)",
+          "year": "1707",
+          "sort": 1707,
+          "lat": 55.95,
+          "lon": -3.19,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "stu-edinburgh"
+        }
+      ]
+    },
+    {
+      "id": "empire",
+      "numeral": "V",
+      "title": "A Global Power",
+      "years": "1714 - 1900",
+      "mood": "empire",
+      "end_year": 1900,
+      "legs": [
+        [
+          "glo-downing",
+          "glo-culloden",
+          "glo-glasgow",
+          "glo-whitby",
+          "glo-cromford",
+          "glo-portsmouth"
+        ],
+        [
+          "glo-ironbridge",
+          "glo-belfast",
+          "glo-liverpool",
+          "glo-manchester",
+          "glo-bristol"
+        ],
+        [
+          "glo-windsor",
+          "glo-newport",
+          "glo-liverpool-irish",
+          "glo-hyde-park",
+          "glo-st-thomas",
+          "glo-burwash"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "glo-downing",
+          "name": "10 Downing Street",
+          "place": "10 Downing Street, London",
+          "year": "1714-1742",
+          "sort": 1714,
+          "lat": 51.503,
+          "lon": -0.128,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-downing"
+        },
+        {
+          "id": "glo-culloden",
+          "name": "Culloden",
+          "place": "Culloden, Highland",
+          "year": "1746",
+          "sort": 1746,
+          "lat": 57.478,
+          "lon": -4.096,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-culloden"
+        },
+        {
+          "id": "glo-glasgow",
+          "name": "Glasgow (Enlightenment)",
+          "place": "Glasgow",
+          "year": "18th century",
+          "sort": 1760,
+          "lat": 55.861,
+          "lon": -4.251,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-glasgow"
+        },
+        {
+          "id": "glo-whitby",
+          "name": "Whitby",
+          "place": "Whitby, North Yorkshire",
+          "year": "1770",
+          "sort": 1770,
+          "lat": 54.486,
+          "lon": -0.614,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "glo-whitby"
+        },
+        {
+          "id": "glo-cromford",
+          "name": "Cromford",
+          "place": "Cromford Mill, Derbyshire",
+          "year": "1771",
+          "sort": 1771,
+          "lat": 53.113,
+          "lon": -1.556,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "glo-cromford"
+        },
+        {
+          "id": "glo-portsmouth",
+          "name": "Portsmouth (HMS Victory)",
+          "place": "Portsmouth, Hampshire",
+          "year": "1776-1815",
+          "sort": 1776,
+          "lat": 50.8,
+          "lon": -1.107,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-portsmouth"
+        },
+        {
+          "id": "glo-ironbridge",
+          "name": "Ironbridge",
+          "place": "Ironbridge Gorge, Shropshire",
+          "year": "1779",
+          "sort": 1779,
+          "lat": 52.627,
+          "lon": -2.485,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "glo-ironbridge"
+        },
+        {
+          "id": "glo-belfast",
+          "name": "Belfast (1801)",
+          "place": "Belfast",
+          "year": "1801",
+          "sort": 1801,
+          "lat": 54.599,
+          "lon": -5.926,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-belfast"
+        },
+        {
+          "id": "glo-liverpool",
+          "name": "Liverpool (1807)",
+          "place": "Liverpool",
+          "year": "1807",
+          "sort": 1807,
+          "lat": 53.408,
+          "lon": -2.992,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-liverpool"
+        },
+        {
+          "id": "glo-manchester",
+          "name": "Manchester (1832)",
+          "place": "Manchester",
+          "year": "1832",
+          "sort": 1832,
+          "lat": 53.478,
+          "lon": -2.243,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-manchester"
+        },
+        {
+          "id": "glo-bristol",
+          "name": "Bristol",
+          "place": "Bristol",
+          "year": "c. 1835",
+          "sort": 1835,
+          "lat": 51.449,
+          "lon": -2.581,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "glo-bristol"
+        },
+        {
+          "id": "glo-windsor",
+          "name": "Windsor",
+          "place": "Windsor Castle",
+          "year": "1837",
+          "sort": 1837,
+          "lat": 51.484,
+          "lon": -0.604,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-windsor"
+        },
+        {
+          "id": "glo-newport",
+          "name": "Newport (Chartists)",
+          "place": "Newport, Wales",
+          "year": "c. 1839",
+          "sort": 1839,
+          "lat": 51.588,
+          "lon": -2.998,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "glo-newport"
+        },
+        {
+          "id": "glo-liverpool-irish",
+          "name": "Liverpool (Irish arrivals)",
+          "place": "Liverpool",
+          "year": "c. 1850",
+          "sort": 1850,
+          "lat": 53.411,
+          "lon": -2.985,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-liverpool-irish"
+        },
+        {
+          "id": "glo-hyde-park",
+          "name": "Hyde Park",
+          "place": "Hyde Park, London",
+          "year": "1851",
+          "sort": 1851,
+          "lat": 51.503,
+          "lon": -0.17,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-hyde-park"
+        },
+        {
+          "id": "glo-st-thomas",
+          "name": "St Thomas' Hospital",
+          "place": "St Thomas' Hospital, London",
+          "year": "1854-1860",
+          "sort": 1854,
+          "lat": 51.499,
+          "lon": -0.119,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "glo-st-thomas"
+        },
+        {
+          "id": "glo-burwash",
+          "name": "Burwash (Kipling)",
+          "place": "Bateman's, Burwash, East Sussex",
+          "year": "1899-1902",
+          "sort": 1899,
+          "lat": 51.007,
+          "lon": 0.387,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "glo-burwash"
+        }
+      ]
+    },
+    {
+      "id": "twentieth",
+      "numeral": "VI",
+      "title": "The 20th Century",
+      "years": "1900 - 1945",
+      "mood": "twentieth",
+      "end_year": 1945,
+      "legs": [
+        [
+          "mod-manchester",
+          "mod-belfast",
+          "mod-brighton",
+          "mod-cenotaph",
+          "mod-westminster",
+          "mod-glasgow"
+        ],
+        [
+          "mod-cambridge",
+          "mod-dover",
+          "mod-blenheim",
+          "mod-coventry",
+          "mod-portsmouth"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "mod-manchester",
+          "name": "Manchester (1903)",
+          "place": "Pankhurst Centre, Manchester",
+          "year": "1903",
+          "sort": 1903,
+          "lat": 53.466,
+          "lon": -2.232,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-manchester"
+        },
+        {
+          "id": "mod-belfast",
+          "name": "Belfast (1921)",
+          "place": "Belfast",
+          "year": "1913-1922",
+          "sort": 1913,
+          "lat": 54.595,
+          "lon": -5.931,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "mod-belfast"
+        },
+        {
+          "id": "mod-brighton",
+          "name": "Brighton",
+          "place": "Brighton, East Sussex",
+          "year": "1914",
+          "sort": 1914,
+          "lat": 50.823,
+          "lon": -0.137,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "mod-brighton"
+        },
+        {
+          "id": "mod-cenotaph",
+          "name": "The Cenotaph",
+          "place": "Cenotaph, Whitehall, London",
+          "year": "1916-1918",
+          "sort": 1916,
+          "lat": 51.503,
+          "lon": -0.126,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-cenotaph"
+        },
+        {
+          "id": "mod-westminster",
+          "name": "Westminster (1918)",
+          "place": "Palace of Westminster",
+          "year": "1918",
+          "sort": 1918,
+          "lat": 51.5,
+          "lon": -0.126,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-westminster"
+        },
+        {
+          "id": "mod-glasgow",
+          "name": "Glasgow (1929)",
+          "place": "Glasgow",
+          "year": "1929",
+          "sort": 1929,
+          "lat": 55.859,
+          "lon": -4.254,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-glasgow"
+        },
+        {
+          "id": "mod-cambridge",
+          "name": "Cambridge (1930s)",
+          "place": "Cambridge",
+          "year": "1930s",
+          "sort": 1935,
+          "lat": 52.209,
+          "lon": 0.114,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-cambridge"
+        },
+        {
+          "id": "mod-dover",
+          "name": "Dover (1940)",
+          "place": "Dover, Kent",
+          "year": "1939-1940",
+          "sort": 1939,
+          "lat": 51.126,
+          "lon": 1.318,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "mod-dover"
+        },
+        {
+          "id": "mod-blenheim",
+          "name": "Blenheim",
+          "place": "Blenheim Palace, Oxfordshire",
+          "year": "1940",
+          "sort": 1940,
+          "lat": 51.841,
+          "lon": -1.361,
+          "year_src": "EXT",
+          "place_in_handbook": false,
+          "content": "mod-blenheim"
+        },
+        {
+          "id": "mod-coventry",
+          "name": "Coventry",
+          "place": "Coventry",
+          "year": "1940",
+          "sort": 1940,
+          "lat": 52.408,
+          "lon": -1.507,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "mod-coventry"
+        },
+        {
+          "id": "mod-portsmouth",
+          "name": "Portsmouth (1944)",
+          "place": "Portsmouth, Hampshire",
+          "year": "1944-1945",
+          "sort": 1944,
+          "lat": 50.797,
+          "lon": -1.103,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "mod-portsmouth"
+        }
+      ]
+    },
+    {
+      "id": "modern",
+      "numeral": "VII",
+      "title": "Britain since 1945",
+      "years": "1945 - today",
+      "mood": "modern",
+      "end_year": 2026,
+      "legs": [
+        [
+          "pos-tredegar",
+          "pos-tilbury",
+          "pos-jodrell-bank",
+          "pos-liverpool",
+          "pos-enfield",
+          "pos-belfast"
+        ],
+        [
+          "pos-grantham",
+          "pos-stormont",
+          "pos-holyrood",
+          "pos-senedd",
+          "pos-westminster"
+        ]
+      ],
+      "stops": [
+        {
+          "id": "pos-tredegar",
+          "name": "Tredegar",
+          "place": "Tredegar, Wales",
+          "year": "1945-1948",
+          "sort": 1945,
+          "lat": 51.775,
+          "lon": -3.246,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "pos-tredegar"
+        },
+        {
+          "id": "pos-tilbury",
+          "name": "Tilbury",
+          "place": "Tilbury Docks, Essex",
+          "year": "1948",
+          "sort": 1948,
+          "lat": 51.454,
+          "lon": 0.357,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "pos-tilbury"
+        },
+        {
+          "id": "pos-jodrell-bank",
+          "name": "Jodrell Bank",
+          "place": "Jodrell Bank, Cheshire",
+          "year": "1950s",
+          "sort": 1950,
+          "lat": 53.236,
+          "lon": -2.307,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-jodrell-bank"
+        },
+        {
+          "id": "pos-liverpool",
+          "name": "Liverpool (1960s)",
+          "place": "Liverpool",
+          "year": "1960s",
+          "sort": 1960,
+          "lat": 53.405,
+          "lon": -2.989,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "pos-liverpool"
+        },
+        {
+          "id": "pos-enfield",
+          "name": "Enfield",
+          "place": "Enfield, north London",
+          "year": "1967-1996",
+          "sort": 1967,
+          "lat": 51.652,
+          "lon": -0.081,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-enfield"
+        },
+        {
+          "id": "pos-belfast",
+          "name": "Belfast (1970s)",
+          "place": "Belfast",
+          "year": "1969-1973",
+          "sort": 1969,
+          "lat": 54.601,
+          "lon": -5.924,
+          "year_src": "HB",
+          "place_in_handbook": false,
+          "content": "pos-belfast"
+        },
+        {
+          "id": "pos-grantham",
+          "name": "Grantham",
+          "place": "Grantham, Lincolnshire",
+          "year": "1979-1990",
+          "sort": 1979,
+          "lat": 52.911,
+          "lon": -0.642,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-grantham"
+        },
+        {
+          "id": "pos-stormont",
+          "name": "Stormont",
+          "place": "Stormont, Belfast",
+          "year": "1998",
+          "sort": 1998,
+          "lat": 54.605,
+          "lon": -5.832,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-stormont"
+        },
+        {
+          "id": "pos-holyrood",
+          "name": "Holyrood",
+          "place": "Holyrood, Edinburgh",
+          "year": "1997-1999",
+          "sort": 1999,
+          "lat": 55.952,
+          "lon": -3.175,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-holyrood"
+        },
+        {
+          "id": "pos-senedd",
+          "name": "Senedd",
+          "place": "Senedd, Cardiff Bay",
+          "year": "1999",
+          "sort": 1999,
+          "lat": 51.464,
+          "lon": -3.162,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-senedd"
+        },
+        {
+          "id": "pos-westminster",
+          "name": "Westminster (Today)",
+          "place": "Palace of Westminster",
+          "year": "Today",
+          "sort": 2024,
+          "lat": 51.5,
+          "lon": -0.124,
+          "year_src": "HB",
+          "place_in_handbook": true,
+          "content": "pos-westminster"
+        }
+      ]
+    }
+  ]
+}

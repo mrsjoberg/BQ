@@ -1,0 +1,151 @@
+part,chapter,page,order,stop_id,name,place,display_year,sort_year,year_source,place_in_handbook,lat,lon,topics,facts_A,facts_B,facts_C,facts_AB,echo_after
+journey,P,,1,pro-skara-brae,Skara Brae,"Skara Brae, Orkney",Stone Age,-3100,EXT,Y,59.049,-3.343,"Stone Age: hunter-gatherers, land bridge, Channel forms about 10,000 years ago, first farmers, Skara Brae",2,3,3,5,
+journey,P,,2,pro-stonehenge,Stonehenge,"Stonehenge, Wiltshire",Stone Age,-2500,EXT,Y,51.179,-1.826,"Stonehenge and its ceremonies; Bronze Age: roundhouses, round barrows, metalwork",2,1,2,3,
+journey,P,,3,pro-maiden-castle,Maiden Castle,"Maiden Castle, Dorset",Iron Age,-600,EXT,Y,50.695,-2.471,"Iron Age: iron tools, hill forts, Celtic languages, first coins",3,3,1,6,
+journey,I,,1,rom-richborough,Richborough,"Richborough, Kent",55 BC / AD 43,-55,HB,N,51.293,1.332,Caesar fails in 55 BC; Claudius succeeds in AD 43; Romans stay 400 years,4,1,0,5,
+journey,I,,2,rom-london,Roman London,London (Westminster Bridge),AD 60,60,EXT,Y,51.501,-0.122,"Boudicca and her statue; Roman roads, buildings, law, plants and animals",2,1,0,3,
+journey,I,,3,rom-housesteads,Hadrian's Wall,"Housesteads, Northumberland",AD 122,122,EXT,Y,55.013,-2.327,"Hadrian's Wall, Picts, Housesteads and Vindolanda, UNESCO; Scotland never conquered",1,3,1,4,
+journey,II,,1,ang-sutton-hoo,Sutton Hoo,"Sutton Hoo, Suffolk",AD 410-600,411,HB,Y,52.089,1.338,"Romans leave 410; Jutes, Angles, Saxons; kingdoms by 600; ship burial",4,1,1,5,
+journey,II,,2,ang-iona,Iona,"Iona, Scotland",c. AD 563,563,EXT,Y,56.335,-6.393,Irish missionaries: St Patrick and St Columba,2,1,1,3,
+journey,II,,3,ang-canterbury,Canterbury (597),"Canterbury, Kent",c. AD 597,597,EXT,Y,51.28,1.083,First Christians in Roman times; St Augustine; first Archbishop of Canterbury,3,0,0,3,
+journey,II,,4,vik-york,York,"York, North Yorkshire",from AD 789,789,HB,N,53.96,-1.081,Vikings from 789; Danelaw; Grimsby and Scunthorpe; Kenneth MacAlpin and 'Scotland',2,5,1,7,
+journey,II,,5,ang-winchester,Winchester,"Winchester, Hampshire",c. AD 880,880,EXT,N,51.063,-1.308,Alfred the Great defeats the Vikings; Danish kings; Cnut,1,2,0,3,
+journey,III,,1,med-hastings,Hastings,"Hastings (Battle), East Sussex",1066,1066,HB,Y,50.914,0.487,William beats Harold; William the Conqueror; Bayeux Tapestry; last invasion,3,3,1,6,
+journey,III,,2,med-tower,Tower of London (Normans),Tower of London,c. 1080,1080,EXT,Y,51.508,-0.076,"Domesday Book; feudalism, serfs and clans; the White Tower",3,2,0,5,
+journey,III,,3,med-runnymede,Runnymede,"Runnymede, Surrey",1215,1215,HB,N,51.444,-0.565,King John and Magna Carta: even the king is under the law,2,2,0,4,
+journey,III,,4,med-caernarfon,Caernarfon,"Caernarfon, Gwynedd",1284,1284,HB,Y,53.139,-4.277,Statute of Rhuddlan; Welsh castles; end of Welsh rebellions; the Pale in Ireland,1,5,2,6,
+journey,III,,5,med-westminster,Westminster Hall,Palace of Westminster,c. 1295,1295,EXT,Y,51.5,-0.125,Parliament begins; Lords and Commons; Scottish Estates; common law and codified law,5,3,0,8,
+journey,III,,6,med-bannockburn,Bannockburn,"Bannockburn, Stirling",1314,1314,HB,Y,56.094,-3.923,Robert the Bruce wins; Scotland stays unconquered; The Bruce,1,3,0,4,
+journey,III,,7,med-weymouth,Weymouth,"Weymouth (Melcombe Regis), Dorset",1348,1348,HB,N,50.607,-2.457,"The Black Death: one third die; labour shortages, wages, the gentry",2,2,0,4,
+journey,III,,8,med-lincoln,Lincoln,Lincoln,c. 1400,1400,HB,Y,53.234,-0.538,English becomes the official language; Chaucer; Caxton; castles and cathedrals,2,4,2,6,
+journey,III,,9,med-southampton,Southampton,"Southampton, Hampshire",1415,1415,HB,N,50.9,-1.404,Crusades; Hundred Years War; Agincourt; wool trade; foreign craftsmen,2,4,0,6,
+journey,III,,10,med-bosworth,Bosworth,"Bosworth Field, Leicestershire",1485,1485,HB,Y,52.58,-1.43,Wars of the Roses; Richard III dies; Henry VII; the Tudor rose,4,3,1,7,
+journey,IV,,1,tud-hampton-court,Hampton Court,Hampton Court Palace,1530s,1530,HB,N,51.404,-0.338,"Henry VIII, his six wives, Wales united with England",8,0,0,8,
+journey,IV,,2,tud-canterbury,Canterbury (Church of England),"Canterbury, Kent",1530s,1534,HB,Y,51.285,1.087,Break with Rome; Church of England; Reformation; head of the Church; Archbishop,6,3,0,9,
+journey,IV,,3,tud-greenwich,Greenwich,"Greenwich, London",1547-1603,1547,EXT,N,51.482,-0.008,"Edward VI, 'Bloody Mary', Elizabeth I; James VI becomes James I in 1603",5,4,0,9,
+journey,IV,,4,tud-stirling,Stirling Castle,Stirling Castle,1560,1560,HB,N,56.123,-3.948,"Scottish Reformation 1560; Mary, Queen of Scots; Church of Scotland",3,5,0,8,
+journey,IV,,5,tud-stratford,Stratford-upon-Avon,Stratford-upon-Avon,1564,1564,HB,Y,52.192,-1.707,"Shakespeare: plays, quotations, the Globe",2,5,0,7,
+journey,IV,,6,tud-plymouth,Plymouth,"Plymouth, Devon",1588,1588,HB,N,50.365,-4.142,Spanish Armada 1588; Drake and the Golden Hind; first American colonies,3,3,0,6,
+journey,IV,,7,stu-westminster,Westminster (1605),Palace of Westminster,1605-1642,1605,HB,Y,51.501,-0.126,Divine Right; King James Bible; Gunpowder Plot; Charles I and Parliament; five MPs,6,2,0,8,
+journey,IV,,8,stu-derry,Derry/Londonderry,Derry/Londonderry,c. 1609,1609,EXT,N,54.996,-7.309,Ireland under Tudors and Stuarts; Ulster plantations,0,6,1,6,
+journey,IV,,9,stu-newcastle,Newcastle,Newcastle upon Tyne,1640,1640,HB,N,54.978,-1.617,"Charles I, the Prayer Book, the Scottish army, Puritans",1,3,1,4,
+journey,IV,,10,stu-naseby,Naseby,"Naseby, Northamptonshire",1642-1649,1645,HB,Y,52.395,-0.99,"Civil war: Cavaliers, Roundheads, Naseby; execution 1649; the Commonwealth",5,0,0,5,
+journey,IV,,11,stu-worcester,Worcester,Worcester,1651,1651,EXT,Y,52.192,-2.22,"Cromwell: Ireland, Dunbar, Worcester; Lord Protector; only republic; oak tree",2,6,0,8,
+journey,IV,,12,stu-dover,Dover (1660),"Dover, Kent",1660,1660,HB,N,51.129,1.321,Restoration: Charles II returns,1,2,0,3,
+journey,IV,,13,stu-london-1666,London 1666,"St Paul's Cathedral, London",1665-1666,1665,HB,Y,51.514,-0.098,"Plague, Great Fire, Wren, Pepys; Habeas Corpus 1679; Jews and Huguenots",5,3,0,8,
+journey,IV,,14,stu-cambridge,Cambridge (Newton),Cambridge,1660s,1670,EXT,Y,52.205,0.119,"Royal Society, Halley, Isaac Newton",2,2,0,4,
+journey,IV,,15,stu-torbay,Torbay,"Torbay (Brixham), Devon",1688,1688,HB,N,50.395,-3.514,James II; William of Orange; the Glorious Revolution,3,4,0,7,
+journey,IV,,16,stu-westminster-1689,Westminster (1689),Palace of Westminster,1689,1689,HB,Y,51.499,-0.124,Bill of Rights; Protestant monarch; ministers; Whigs and Tories; free press 1695,5,3,0,8,
+journey,IV,,17,stu-glencoe,Glencoe,"Glencoe, Highland",1690-1692,1690,EXT,Y,56.682,-5.1,Battle of the Boyne; Killiecrankie; Glencoe massacre; Jacobites,3,4,1,7,
+journey,IV,,18,stu-edinburgh,Edinburgh (Union),Edinburgh (Parliament House),1707,1707,HB,N,55.95,-3.19,"Act of Union 1707 creates Great Britain; Scotland keeps its law, schools, Church",2,1,0,3,
+journey,V,,1,glo-downing,10 Downing Street,"10 Downing Street, London",1714-1742,1714,HB,Y,51.503,-0.128,George I; first Prime Minister Walpole; ministers; 1715 Jacobite attempt,4,4,1,8,
+journey,V,,2,glo-culloden,Culloden,"Culloden, Highland",1746,1746,HB,Y,57.478,-4.096,Bonnie Prince Charlie; Culloden; clans lose power; Highland Clearances,3,2,0,5,
+journey,V,,3,glo-glasgow,Glasgow (Enlightenment),Glasgow,18th century,1760,HB,N,55.861,-4.251,"Enlightenment: Adam Smith, David Hume, James Watt",4,1,0,5,
+journey,V,,4,glo-whitby,Whitby,"Whitby, North Yorkshire",1770,1770,EXT,N,54.486,-0.614,"Captain Cook; Australia, Canada, India, southern Africa; imports",1,3,1,4,
+journey,V,,5,glo-cromford,Cromford,"Cromford Mill, Derbyshire",1771,1771,EXT,N,53.113,-1.556,Arkwright and factories; cottage industries,0,4,0,4,
+journey,V,,6,glo-portsmouth,Portsmouth (HMS Victory),"Portsmouth, Hampshire",1776-1815,1776,HB,Y,50.8,-1.107,American independence; French wars; Trafalgar; Nelson; Waterloo,3,3,1,6,
+journey,V,,7,glo-ironbridge,Ironbridge,"Ironbridge Gorge, Shropshire",1779,1779,EXT,N,52.627,-2.485,"Industrial Revolution: steam, coal, canals, Bessemer steel; harsh conditions",3,5,0,8,
+journey,V,,8,glo-belfast,Belfast (1801),Belfast,1801,1801,HB,N,54.599,-5.926,Act of Union 1800/1801; the Union Flag and its three crosses,5,1,0,6,
+journey,V,,9,glo-liverpool,Liverpool (1807),Liverpool,1807,1807,HB,N,53.408,-2.992,Slave trade; Quakers; Wilberforce; 1807 ban; 1833 Emancipation Act,4,3,1,7,
+journey,V,,10,glo-manchester,Manchester (1832),Manchester,1832,1832,HB,N,53.478,-2.243,Reform Acts 1832 and 1867; who could vote; wives and property,2,6,0,8,
+journey,V,,11,glo-bristol,Bristol,Bristol,c. 1835,1835,EXT,N,51.449,-2.581,"Railways: the Stephensons, Brunel, Great Western Railway",1,2,0,3,
+journey,V,,12,glo-windsor,Windsor,Windsor Castle,1837,1837,HB,N,51.484,-0.604,Queen Victoria; the Empire; emigration and migrants; Mahomet,3,3,1,6,
+journey,V,,13,glo-newport,Newport (Chartists),"Newport, Wales",c. 1839,1839,EXT,N,51.588,-2.998,The Chartists and their six demands,4,0,0,4,
+journey,V,,14,glo-liverpool-irish,Liverpool (Irish arrivals),Liverpool,c. 1850,1850,HB,Y,53.411,-2.985,Irish famine; Irish in British cities; Fenians; Parnell and Home Rule,1,3,0,4,
+journey,V,,15,glo-hyde-park,Hyde Park,"Hyde Park, London",1851,1851,HB,Y,51.503,-0.17,Great Exhibition 1851; free trade; factory hours; British industry leads,2,2,1,4,
+journey,V,,16,glo-st-thomas,St Thomas' Hospital,"St Thomas' Hospital, London",1854-1860,1854,HB,Y,51.499,-0.119,Crimean War; Victoria Cross; Florence Nightingale,4,0,1,4,
+journey,V,,17,glo-burwash,Burwash (Kipling),"Bateman's, Burwash, East Sussex",1899-1902,1899,HB,N,51.007,0.387,Boer War; the Empire's future; Kipling,2,3,1,5,
+journey,VI,,1,mod-manchester,Manchester (1903),"Pankhurst Centre, Manchester",1903,1903,HB,Y,53.466,-2.232,Emmeline Pankhurst and the suffragettes,4,2,0,6,
+journey,VI,,2,mod-belfast,Belfast (1921),Belfast,1913-1922,1913,HB,N,54.595,-5.931,Home Rule; Easter Rising 1916; partition 1921-22; the Troubles begin,4,4,0,8,
+journey,VI,,3,mod-brighton,Brighton,"Brighton, East Sussex",1914,1914,HB,N,50.823,-0.137,First World War begins; causes; the Empire fights,2,3,0,5,
+journey,VI,,4,mod-cenotaph,The Cenotaph,"Cenotaph, Whitehall, London",1916-1918,1916,HB,Y,51.503,-0.126,Somme 1916; armistice 1918; Remembrance Day; Lutyens,5,2,0,7,
+journey,VI,,5,mod-westminster,Westminster (1918),Palace of Westminster,1918,1918,HB,Y,51.5,-0.126,Early 1900s reforms; votes for women 1918 and 1928; Chartist aims achieved,4,3,0,7,
+journey,VI,,6,mod-glasgow,Glasgow (1929),Glasgow,1929,1929,HB,Y,55.859,-4.254,Great Depression; BBC; Baird; Keynes; cars,2,5,1,7,
+journey,VI,,7,mod-cambridge,Cambridge (1930s),Cambridge,1930s,1935,HB,Y,52.209,0.114,"Turing, radar, jet engine, insulin, Rutherford, penicillin",3,4,0,7,
+journey,VI,,8,mod-dover,Dover (1940),"Dover, Kent",1939-1940,1939,HB,N,51.126,1.318,Hitler; war declared 1939; fall of France; Dunkirk,4,4,0,8,
+journey,VI,,9,mod-blenheim,Blenheim,"Blenheim Palace, Oxfordshire",1940,1940,EXT,N,51.841,-1.361,"Churchill: career, speeches, honours",1,3,0,4,
+journey,VI,,10,mod-coventry,Coventry,Coventry,1940,1940,HB,Y,52.408,-1.507,Battle of Britain; Spitfire and Hurricane; the Blitz,2,3,0,5,
+journey,VI,,11,mod-portsmouth,Portsmouth (1944),"Portsmouth, Hampshire",1944-1945,1944,HB,N,50.797,-1.103,Pearl Harbour; D-Day; victory 1945; atom bombs,3,2,2,5,
+journey,VII,,1,pos-tredegar,Tredegar,"Tredegar, Wales",1945-1948,1945,HB,N,51.775,-3.246,Attlee 1945; Beveridge; NHS 1948; welfare state; Education Act 1944,5,4,2,9,
+journey,VII,,2,pos-tilbury,Tilbury,"Tilbury Docks, Essex",1948,1948,HB,N,51.454,0.357,"Post-war migration from Ireland, Europe, the West Indies and South Asia",0,4,0,4,
+journey,VII,,3,pos-jodrell-bank,Jodrell Bank,"Jodrell Bank, Cheshire",1950s,1950,HB,Y,53.236,-2.307,1947 independence; NATO; Macmillan; DNA 1953; Jodrell Bank; hovercraft,2,5,0,7,
+journey,VII,,4,pos-liverpool,Liverpool (1960s),Liverpool,1960s,1960,HB,N,53.405,-2.989,Swinging Sixties; Beatles; liberal laws; equal pay; voting age 18,3,4,1,7,
+journey,VII,,5,pos-enfield,Enfield,"Enfield, north London",1967-1996,1967,HB,Y,51.652,-0.081,"Concorde, cash machine 1967, IVF 1978, MRI, World Wide Web 1990, Dolly 1996",5,2,0,7,
+journey,VII,,6,pos-belfast,Belfast (1970s),Belfast,1969-1973,1969,HB,N,54.601,-5.924,1970s economy; direct rule 1972; Troubles deaths; Mary Peters; EEC 1973,3,4,0,7,
+journey,VII,,7,pos-grantham,Grantham,"Grantham, Lincolnshire",1979-1990,1979,HB,Y,52.911,-0.642,Thatcher; reforms; Falklands 1982; John Major,3,4,0,7,
+journey,VII,,8,pos-stormont,Stormont,"Stormont, Belfast",1998,1998,HB,Y,54.605,-5.832,"Good Friday Agreement 1998; NI Assembly: 90 MLAs, powers",4,4,1,8,
+journey,VII,,9,pos-holyrood,Holyrood,"Holyrood, Edinburgh",1997-1999,1999,HB,Y,55.952,-3.175,"Devolution 1997; Scottish Parliament: 129 MSPs, powers",6,2,0,8,
+journey,VII,,10,pos-senedd,Senedd,"Senedd, Cardiff Bay",1999,1999,HB,Y,51.464,-3.162,"Welsh Assembly: 60 AMs, powers, 2011 law-making",3,3,0,6,
+journey,VII,,11,pos-westminster,Westminster (Today),Palace of Westminster,Today,2024,HB,Y,51.5,-0.124,Reserved powers; Brown; conflicts abroad; 2010 coalition; Brexit-era governments,2,6,1,8,
+passport,,Welcome & the test,1,pp-resident-test,Taking the test,,,,,,,,24 questions; centres; booking; ID; language; 45 minutes and 75%,2,6,3,8,Day 1
+passport,,Welcome & the test,2,pp-resident-route,Becoming a resident,,,,,,,,Residence requirements; ESOL route; English level; applying,4,4,2,8,I
+passport,,Welcome & the test,3,pp-values-principles,Principles and pledge,,,,,,,,Five principles; pledge; oath and affirmation; extremism,4,2,2,6,Day 1
+passport,,Welcome & the test,4,pp-values-duties,Responsibilities and freedoms,,,,,,,,What residents should do; what the UK offers; shared values,4,3,0,7,I
+passport,,The UK & its nations,1,uk-lands-end,Land's End,"Land's End, Cornwall",,,,Y,50.066,-5.716,The UK vs Great Britain; four nations; Ireland; Westminster and devolution,6,1,1,7,Day 1
+passport,,The UK & its nations,2,uk-isle-of-man,Isle of Man,Isle of Man,,,,Y,54.23,-4.55,Crown dependencies; overseas territories; not part of the UK,3,0,0,3,Day 1
+passport,,The UK & its nations,3,uk-jog,John o' Groats,"John o' Groats, Highland",,,,Y,58.644,-3.069,Size of the UK; population growth; shares of each nation,3,6,6,9,I
+passport,,The UK & its nations,4,nat-london,England: London,London,,,,Y,51.507,-0.128,Capital; southern cities; St George; roast beef,4,5,1,9,II
+passport,,The UK & its nations,5,nat-leeds,England: northern cities,Leeds,,,,Y,53.8,-1.549,"Leeds, Bradford, Sheffield, Manchester, Liverpool, Newcastle",0,6,0,6,II
+passport,,The UK & its nations,6,nat-edinburgh,Scotland: Edinburgh,Edinburgh,,,,Y,55.953,-3.189,Capital; Scottish cities; Gaelic; St Andrew; haggis,5,3,0,8,II
+passport,,The UK & its nations,7,nat-belfast,Northern Ireland: Belfast,Belfast,,,,Y,54.597,-5.93,Capital; Irish Gaelic; St Patrick; Ulster fry,5,0,0,5,II
+passport,,The UK & its nations,8,nat-cardiff,Wales: Cardiff,Cardiff,,,,Y,51.481,-3.179,Capital; Swansea and Newport; Welsh language; St David; Welsh cakes,5,2,0,7,III
+passport,,The UK & its nations,9,nat-swansea,Wales: Swansea,Swansea,,,,Y,51.621,-3.944,Dylan Thomas; Roald Dahl; the Eisteddfod,1,3,0,4,III
+passport,,The UK & its nations,10,plc-london,London landmarks,"London Eye, London",,,,Y,51.503,-0.119,"Big Ben and Elizabeth Tower, London Eye, Tower of London",4,0,0,4,III
+passport,,The UK & its nations,11,plc-lake-district,National parks and landmarks,"Lake District, Cumbria",,,,Y,54.46,-3.09,"15 national parks, National Trust, Lake District, Snowdonia, Loch Lomond, Giant's Causeway, Eden",6,3,1,9,VII
+passport,,The UK & its nations,12,pp-today,The UK today,,,,,,,,Diversity; ageing; equality of men and women,3,4,1,7,VII
+passport,,Government,1,pp-constitution,How Britain is governed,,,,,,,,Democracy; unwritten constitution; main institutions,6,1,1,7,III
+passport,,Government,2,gov-buckingham,The monarch,"Buckingham Palace, London",,,,N,51.501,-0.142,Role of the monarch; Prime Minister appointed; Commonwealth head; stability,5,4,1,9,IV
+passport,,Government,3,gov-westminster-commons,The Commons,Palace of Westminster,,,,Y,51.5,-0.125,"Constituencies, MPs, majority, coalition, what MPs do",3,2,1,5,III
+passport,,Government,4,gov-westminster-elections,Elections,Palace of Westminster,,,,Y,51.5,-0.125,"General Election every 5 years, by-elections, first past the post, proportional representation",4,3,0,7,III
+passport,,Government,5,gov-westminster-lords,The Lords,Palace of Westminster,,,,Y,51.5,-0.125,"Peers, hereditary and life peers, 1958 and 1999 changes",3,2,0,5,III
+passport,,Government,6,gov-westminster-speaker,The Speaker and the Lords' role,Palace of Westminster,,,,Y,51.5,-0.125,Speaker's neutrality; Lords scrutiny; Commons can overrule; bishops,6,2,0,8,III
+passport,,Government,7,gov-westminster-ceremony,Ceremony and visits,Palace of Westminster,,,,Y,51.5,-0.125,"State Opening, Acts in the monarch's name, Hansard, visiting Parliament",3,1,1,4,IV
+passport,,Government,8,gov-downing-pm,Prime Minister and cabinet,"10 Downing Street, London",,,,Y,51.503,-0.128,"PM, Chequers, cabinet posts: Chancellor, Home, Foreign Secretaries",6,2,1,8,V
+passport,,Government,9,gov-downing-opposition,Opposition and parties,"10 Downing Street, London",,,,Y,51.503,-0.128,"Opposition, shadow cabinet, PMQs, main parties, independents, pressure groups",4,2,2,6,V
+passport,,Government,10,gov-downing-civil-service,Civil service and lobbying,"10 Downing Street, London",,,,Y,51.503,-0.128,"Civil service neutrality and values; pressure groups: CBI, Greenpeace, Liberty",1,2,0,3,V
+passport,,Government,11,gov-city-hall,Local government and media,London City Hall,,,,N,51.505,-0.079,"Councils, mayors, funding, London's 33 authorities; free press; balanced broadcasting",3,2,2,5,V
+passport,,Law & courts,1,pp-law-basics,Criminal and civil law,,,,,,,,Equal treatment; criminal vs civil law; examples,4,1,0,5,III
+passport,,Law & courts,2,pp-law-offences,Everyday offences,,,,,,,,"Weapons, drugs, racial crime, tobacco and alcohol rules",6,1,0,7,VI
+passport,,Law & courts,3,gov-old-bailey-criminal,"Criminal courts (England, Wales, NI)","Old Bailey, London",,,,N,51.516,-0.102,"Judges, magistrates, Crown Court, juries of 12",5,3,0,8,III
+passport,,Law & courts,4,gov-old-bailey-civil-youth,Civil and youth courts,"Old Bailey, London",,,,N,51.516,-0.102,"County Court, High Court, small claims, Youth Court, solicitors",2,6,0,8,V
+passport,,Law & courts,5,gov-edinburgh-courts,Scottish courts,"Court of Session, Edinburgh",,,,Y,55.95,-3.191,"JP courts, Sheriff Court, High Court, jury of 15, Not proven, Court of Session",2,2,0,4,V
+passport,,Law & courts,6,pp-police-duties,The police,,,,,,,,Police duties; Chief Constables; PCCs; arrest rights,5,2,0,7,VI
+passport,,Law & courts,7,pp-police-complaints,Complaints and extremism,,,,,,,,Complaints bodies; terrorism and extremism; reporting,3,2,0,5,VI
+passport,,Law & courts,8,pp-rights-human,Human rights and equality,,,,,,,,Roots of rights; ECHR 1950; Human Rights Act 1998; equal opportunities,5,2,0,7,IV
+passport,,Law & courts,9,pp-rights-protection,Protection from harm,,,,,,,,Domestic violence; FGM; forced and arranged marriage,5,3,0,8,VI
+passport,,"Voting, community & the world",1,pp-voting-register,Who can vote,,,,,,,,Voting age; who may vote; electoral register,3,3,1,6,V
+passport,,"Voting, community & the world",2,pp-voting-ballot,How to vote and stand,,,,,,,,"Polling hours, ID, postal vote, standing for office",3,3,0,6,V
+passport,,"Voting, community & the world",3,pp-community,Your role in the community,,,,,,,,"Neighbours, jury service, governors, volunteering, donating, recycling",3,6,11,9,VII
+passport,,"Voting, community & the world",4,pp-world-commonwealth,The Commonwealth,,,,,,,,"Aims, head, size, values, members by region",3,2,1,5,V
+passport,,"Voting, community & the world",5,pp-world-others,"EU, Council of Europe, UN, NATO",,,,,,,,EU origins and Brexit; Council of Europe; UN Security Council; NATO,6,1,2,7,VII
+passport,,Money & everyday life,1,pp-money-tax,Income tax,,,,,,,,"Income tax, HMRC, PAYE, self-assessment",4,1,0,5,V
+passport,,Money & everyday life,2,pp-money-ni,National Insurance,,,,,,,,National Insurance contributions; NI number at 16; right to work,3,3,0,6,V
+passport,,Money & everyday life,3,pp-money-currency,Money,,,,,,,,Pound and pence; coins; notes; Scottish and NI banknotes,4,0,0,4,V
+passport,,Money & everyday life,4,pp-driving,Driving,,,,,,,,"Ages, licence, tests, foreign licences, insurance, MOT",5,3,0,8,VII
+passport,,Money & everyday life,5,pp-leisure,Everyday life,,,,,,,,"Shopping, drinking and gambling ages, pets, social media",6,0,5,6,VII
+passport,,Faith & customs,1,pp-religion,Religion in the UK,,,,,,,,Percentages; other Christian groups; no established Church in Wales/NI; saints' day holidays,6,2,0,8,II
+passport,,Faith & customs,2,pp-calendar-christmas-easter,Christmas and Easter,,,,,,,,"Christmas, Boxing Day, Easter, public holidays",4,1,1,5,IV
+passport,,Faith & customs,3,pp-calendar-lent,Lent and pancakes,,,,,,,,"Lent, Shrove Tuesday, Ash Wednesday, Easter eggs",2,2,0,4,IV
+passport,,Faith & customs,4,pp-calendar-faiths,Festivals of other faiths,,,,,,,,"Diwali, Hannukah, Eid al-Fitr, Eid ul-Adha, Vaisakhi",5,1,0,6,IV
+passport,,Faith & customs,5,pp-calendar-dates,Dates and holidays,,,,,,,,"New Year, Valentine, April Fool, Mother's and Father's Day, Halloween, bank holidays",2,5,0,7,IV
+passport,,"Music, theatre & the arts",1,cul-albert-hall,Royal Albert Hall,"Royal Albert Hall, London",,,,Y,51.501,-0.177,"The Proms, Last Night, Purcell, Handel, Holst, Elgar",3,5,1,8,VII
+passport,,"Music, theatre & the arts",2,cul-glastonbury,Festivals and pop,"Glastonbury, Somerset",,,,Y,51.155,-2.586,Britten and Aldeburgh; pop since the 1960s; Glastonbury; Mercury Prize,4,1,7,5,VII
+passport,,"Music, theatre & the arts",3,cul-west-end,The West End,"West End, London",,,,Y,51.511,-0.128,"Mousetrap, Gilbert and Sullivan, Lloyd Webber, pantomime, Olivier Awards",3,3,1,6,IV
+passport,,"Music, theatre & the arts",4,cul-edinburgh,Edinburgh festivals and Hogmanay,Edinburgh Castle,,,,Y,55.949,-3.2,Festival and Fringe; Hogmanay; Burns and Auld Lang Syne; the Castle; skiing,5,2,1,7,V
+passport,,"Music, theatre & the arts",5,cul-tate-galleries,Galleries and prizes,"Tate Britain, London",,,,Y,51.491,-0.127,"Galleries, Holbein and Van Dyck, Turner Prize, Pre-Raphaelites",1,4,2,5,V
+passport,,"Music, theatre & the arts",6,cul-tate-artists,British artists,"Tate Britain, London",,,,Y,51.491,-0.127,"Gainsborough, Allan, Turner, Constable, Moore, Hockney",0,6,3,6,V
+passport,,"Music, theatre & the arts",7,cul-greenwich-arch,Architecture,"Queen's House, Greenwich",,,,Y,51.481,-0.009,"Cathedrals, Inigo Jones, Wren, Adam, Gothic revival, modern architects",1,7,3,8,IV
+passport,,"Music, theatre & the arts",8,lei-kew,Gardens,"Kew Gardens, London",,,,Y,51.478,-0.295,"Allotments, famous gardens, national flowers, Capability Brown, Chelsea Flower Show",0,6,0,6,V
+passport,,"Books, film & media",1,cul-poets-corner-authors,Authors,"Westminster Abbey, London",,,,Y,51.499,-0.127,"Austen, Dickens, Stevenson, Hardy, Conan Doyle, Rowling, Tolkien",5,2,3,7,IV
+passport,,"Books, film & media",2,cul-poets-corner-poets,Poets and prizes,"Westminster Abbey, London",,,,Y,51.499,-0.127,"Beowulf, sonnets, Milton, war poets, Poets' Corner, Nobel and Booker prizes",2,6,9,8,IV
+passport,,"Books, film & media",3,cul-ealing,Cinema,"Ealing Studios, London",,,,Y,51.508,-0.305,"Early cinema, Chaplin, Hitchcock, Nick Park, BAFTA, famous films",1,6,17,7,VI
+passport,,"Books, film & media",4,cul-bbc-comedy,Comedy and TV,"Broadcasting House, London",,,,N,51.519,-0.144,"Punch, music hall, Monty Python, soaps, regional-language TV",0,6,1,6,VI
+passport,,"Books, film & media",5,cul-bbc-licence,The BBC and the TV licence,"Broadcasting House, London",,,,N,51.519,-0.144,Licence rules and fines; BBC funding and independence; radio,4,0,1,4,VI
+passport,,Sport,1,spo-wembley,Football and rugby,"Wembley Stadium, London",,,,Y,51.556,-0.28,Sports born in Britain; football 1966; Premier League; rugby and Six Nations,5,3,3,8,VII
+passport,,Sport,2,spo-stratford-games,The Olympics and Paralympics,"Olympic Park, Stratford, London",,,,Y,51.543,-0.016,"1908, 1948, 2012; Paralympic origins; Torvill and Dean; Holmes",3,3,0,6,VII
+passport,,Sport,3,spo-stratford-heroes,Heroes of 2012,"Olympic Park, Stratford, London",,,,Y,51.543,-0.016,"Wiggins, Farah, Ennis, Hoy, Grey-Thompson, Weir, Simmonds",3,2,2,5,VII
+passport,,Sport,4,spo-wimbledon,Wimbledon,"Wimbledon, London",,,,Y,51.434,-0.214,Origins of tennis; Wimbledon; Andy Murray,2,1,0,3,VI
+passport,,Sport,5,spo-st-andrews,St Andrews,"St Andrews, Fife",,,,Y,56.343,-2.803,"Golf: Scottish origin, home of golf, The Open",2,1,0,3,VI
+passport,,Sport,6,spo-aintree,Horse racing,"Aintree, Liverpool",,,,Y,53.477,-2.944,"Royal Ascot, Grand National, Scottish Grand National, Newmarket",0,3,1,3,VI
+passport,,Sport,7,spo-cowes,Sailing and rowing,"Cowes, Isle of Wight",,,,Y,50.763,-1.298,"Chichester, Knox-Johnston, MacArthur, Redgrave, Boat Race",0,5,1,5,VI
+passport,,Sport,8,spo-lords,Cricket and more,"Lord's Cricket Ground, London",,,,N,51.529,-0.173,Cricket and the Ashes; Bannister; Formula 1,2,2,4,4,VI

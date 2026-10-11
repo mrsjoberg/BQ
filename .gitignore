@@ -1,0 +1,7 @@
+# The handbook text and PDF are Crown copyright: keep them out of this public repo.
+# Put a local copy here if you want to run tools/content/copyright_guard.py.
+content-src/private/
+*.pdf
+
+# Build outputs (from M1)
+build/
